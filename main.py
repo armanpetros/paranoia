@@ -4,8 +4,9 @@
 def is_number(data, type, check_zero=False):
     try:
         if (check_zero and type(data) == 0) or \
-                (type == int and data.find('.') >= 0):
-            raise ZeroDivisionError
+                (type == int and data.find('.') >= 0) or \
+                data.find('-') >= 0:
+            raise ValueError
         return type(data)
     except:
         return None
